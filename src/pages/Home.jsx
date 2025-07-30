@@ -1,29 +1,32 @@
-// src/pages/Home.jsx
 import { Link } from "react-router-dom";
 
 const sections = [
-  { title: "Array + Search", path: "/array" },
-  { title: "Stack + Queue", path: "/stackqueue" },
-  { title: "Linked List", path: "/linkedlist" },
-  { title: "Binary Search Tree", path: "/bst" },
-  { title: "Graphs", path: "/graphs" },
-  { title: "Sorting", path: "/sorting" },
-  { title: "Heaps", path: "/heaps" },
-  { title: "Hash Tables", path: "/hashtables" },
+  { title: "Array + Search", path: "/array", emoji: "🔍" },
+  { title: "Stack + Queue", path: "/stackqueue", emoji: "📦" },
+  { title: "Linked List", path: "/linkedlist", emoji: "🔗" },
+  { title: "Binary Search Tree", path: "/bst", emoji: "🌳" },
+  { title: "Graphs", path: "/graphs", emoji: "🕸️" },
+  { title: "Sorting", path: "/sorting", emoji: "🔀" },
+  { title: "Heaps", path: "/heaps", emoji: "📈" },
+  { title: "Hash Tables", path: "/hashtables", emoji: "🎯" },
 ];
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-100 to-indigo-100 p-8">
-      <h1 className="text-5xl font-bold text-center mb-12 text-gray-800">📘 DSA Showcase</h1>
+      <h1 className="text-5xl font-bold text-center mb-12 text-gray-800 drop-shadow-sm">
+        📘 DSA Showcase
+      </h1>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        {sections.map((sec) => (
+        {sections.map(({ title, path, emoji }) => (
           <Link
-            key={sec.path}
-            to={sec.path}
-            className="bg-white shadow-lg rounded-2xl p-6 text-center text-lg font-medium hover:bg-indigo-50 hover:scale-105 transition-all duration-200"
+            key={path}
+            to={path}
+            className="bg-white/70 backdrop-blur-lg hover:bg-white hover:scale-[1.03] hover:shadow-xl transition-all duration-200 shadow-md border border-white rounded-3xl px-6 py-8 text-center text-lg font-medium text-gray-800 flex flex-col items-center justify-center"
           >
-            {sec.title}
+            <div className="text-3xl mb-2">{emoji}</div>
+            <div>{title}</div>
           </Link>
         ))}
       </div>
