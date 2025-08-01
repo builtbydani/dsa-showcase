@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import ArrayPage from "./pages/ArrayPage.jsx";
 import StackQueuePage from "./pages/StackQueuePage";
+import LinkedListPage from "./pages/LinkedListPage";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/array" element={<ArrayPage />} />
         <Route path="/stackqueue" element={<StackQueuePage />} />
+        <Route path="/linkedlist" element={<LinkedListPage />} />
       </Routes>
     </Router>
   );
