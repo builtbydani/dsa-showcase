@@ -8,6 +8,7 @@ import { BST } from "./BSTLogic";
 
 export default function BSTDemo() {
   const [highlight, setHighlight] = useState(null);
+  const [lastInserted, setLastInserted] = useState(null);
   const [mode, setMode] = useState("insert");
   const [bst, setBst] = useState(() => {
     const b = new BST();
@@ -28,17 +29,19 @@ export default function BSTDemo() {
   return (
     <GlowPanel innerRef={panelRef}>
 
-      <BSTCanvas 
-        bst={bst} 
-        highlight={highlight} 
+      <BSTCanvas
+        bst={bst}
+        highlight={highlight}
+        lastInserted={lastInserted}
       />
 
-      <BSTControls 
-        bst={bst} 
-        setBst={setBst} 
-        setHighlight={setHighlight} 
-        mode={mode} 
-        setMode={setMode} 
+      <BSTControls
+        bst={bst}
+        setBst={setBst}
+        setHighlight={setHighlight}
+        setLastInserted={setLastInserted}
+        mode={mode}
+        setMode={setMode}
       />
 
       <DescriptionBox>

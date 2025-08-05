@@ -3,7 +3,7 @@ import Input from "../Common/Input";
 import Button from "../Common/Button";
 import { BST } from "./BSTLogic";
 
-export default function BSTControls({ bst, setBst, setHighlight, mode, setMode }) {
+export default function BSTControls({ bst, setBst, setHighlight, setLastInserted, mode, setMode }) {
   const [input, setInput] = useState("");
 
   const handleAction = () => {
@@ -17,6 +17,7 @@ export default function BSTControls({ bst, setBst, setHighlight, mode, setMode }
 
     if (mode === "insert") {
       newBST.insert(value);
+      setLastInserted(value);
     } else if (mode === "search") {
       const found = newBST.search(value);
       setHighlight(found ? found : null);
@@ -30,6 +31,32 @@ export default function BSTControls({ bst, setBst, setHighlight, mode, setMode }
     setBst(newBST);
     setInput("");
   };
+
+  const handleTraversal = (type) => {
+    let result = [];
+    if (type === "inorder") {
+      result = bst.inorder();
+    } else if (type === "preorder") {
+      result = bst.preorder();
+    } else if (type === "postorder") {
+      result = bst.postorder();
+    }
+
+    result.forEach((val, i) => {
+      setTimeout(() => {
+        const found = bst.search(val);
+        setHighlight(found);
+      }, i * 500);
+    });
+
+    setTimeout(() => setHighlight(null), result.length * 500 + 500);
+  };
+
+  const handleReset = () => {
+    setBst(new BST());
+    setHighlight(null);
+    setLastInserted(null);
+  }
 
   return (
     <div className="flex flex-wrap justify-center gap-2">
@@ -48,6 +75,13 @@ export default function BSTControls({ bst, setBst, setHighlight, mode, setMode }
         <option value="delete">Delete</option>
       </select>
       <Button onClick={handleAction}>Go</Button>
+
+      <div>
+        <Button onClick={() => handleTraversal("inorder")}>Inorder</Button>
+        <Button onClick={() => handleTraversal("preorder")}>Preorder</Button>
+        <Button onClick={() => handleTraversal("postorder")}>Postorder</Button>
+        <Button onClick={handleReset}>Reset</Button>
+      </div>
     </div>
   );
 }

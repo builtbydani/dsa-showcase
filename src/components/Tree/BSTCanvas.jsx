@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 
-export default function BSTCanvas({ bst, highlight }) {
+export default function BSTCanvas({ bst, highlight, lastInserted }) {
   const canvasRef = useRef(); 
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function BSTCanvas({ bst, highlight }) {
       drawNode(node.right);
 
       // Draw node
-      drawCircle(ctx, node.x, node.y, node.value, node === highlight);
+      drawCircle(ctx, node.x, node.y, node.value, node === highlight, node.value === lastInserted);
     };
 
     drawNode(bst.root);
@@ -47,7 +47,16 @@ function drawLine(ctx, x1, y1, x2, y2) {
   ctx.stroke();
 }
 
-function drawCircle(ctx, x, y, value, highlight = false) {
+function drawCircle(ctx, x, y, value, highlight = false, animate = false) {
+  ctx.save();
+
+  if (animate) {
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.fillStyle = "#86efac88";
+    ctx.fill();
+  }
+
   ctx.beginPath();
   ctx.arc(x, y, 20, 0, 2 * Math.PI);
   ctx.fillStyle = highlight ? "#facc15" : "#38bdf8"; // yellow or blue

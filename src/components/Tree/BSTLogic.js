@@ -92,6 +92,30 @@ export class BST {
     this.#inorderRecursive(node.right, result);
   }
 
+  preorder(result = []) {
+    this.#preorderRecursive(this.root, result);
+    return result;
+  }
+
+  #preorderRecursive(node, result) {
+    if (!node) return;
+    result.push(node.value);
+    this.#preorderRecursive(node.left, result);
+    this.#preorderRecursive(node.right, result);
+  }
+
+  postorder(result = []) {
+    this.#postorderRecursive(this.root, result);
+    return result;
+  }
+
+  #postorderRecursive(node, result) {
+    if (!node) return;
+    this.#postorderRecursive(node.left, result);
+    this.#postorderRecursive(node.right, result);
+    result.push(node.value);
+  }
+
   updatePositions(canvasWidth = 800) {
     console.log("[BST] updating positions, canvaswidth = ", canvasWidth);
     const setCoords = (node, x, y, level, spacing) => {
