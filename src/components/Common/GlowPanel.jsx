@@ -1,7 +1,8 @@
 // src/components/Common/GlowPanel.jsx
-export default function GlowPanel({ title, children }) {
+export default function GlowPanel({ title, children, innerRef }) {
   return (
-    <div 
+    <div
+      ref={innerRef}
       className="
         bg-white/60 backdrop-blur-xl 
         border border-gray-200 rounded-2xl 
