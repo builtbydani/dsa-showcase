@@ -1,26 +1,20 @@
 import { useState } from "react";
-import { SinglyLinkedList, DoublyLinkedList } from "./LinkedListLogic";
+import  Button  from "../Common/Button";
 
-export default function LinkedListControls({ type, setList, setAnimationState }) {
+export default function LinkedListControls({ type, instance, forceUpdate, setAnimationState }) {
   const [input, setInput] = useState("");
-  const [instance, setInstance] = useState(
-    type === "singly" ? new SinglyLinkedList() : new DoublyLinkedList()
-  );
-
-  const updateList = () => {
-    setList(instance.toArray());
-  };
 
   const handleInsert = () => {
-    if (!input) return;
+    if (!input.trim()) return;
     instance.insertAtEnd(input);
-    updateList();
+    forceUpdate(); // refresh UI
     setInput("");
   };
 
   const handleDelete = () => {
+    if (!input.trim()) return;
     instance.delete(input);
-    updateList();
+    forceUpdate(); // refresh UI
     setInput("");
   };
 
@@ -36,16 +30,15 @@ export default function LinkedListControls({ type, setList, setAnimationState })
         className="p-2 border rounded"
         placeholder="Enter value"
       />
-      <button onClick={handleInsert} className="bg-green-500 px-3 py-1 rounded text-white">
+      <Button onClick={handleInsert} variant="green">
         Insert
-      </button>
-      <button onClick={handleDelete} className="bg-red-500 px-3 py-1 rounded text-white">
+      </Button>
+      <Button onClick={handleDelete} variant="red">
         Delete
-      </button>
-      <button onClick={handleTraverse} className="bg-blue-500 px-3 py-1 rounded text-white">
+      </Button>
+      <Button onClick={handleTraverse} variant="blue">
         Traverse
-      </button>
+      </Button>
     </div>
   );
 }
-

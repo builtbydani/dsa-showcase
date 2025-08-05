@@ -3,7 +3,7 @@ import LinkedListDemo from "../components/LinkedList/LinkedListDemo.jsx";
 
 export default function LinkedListPage() {
   return (
-    <DSAPageLayout title="Linked List">
+    <DSAPageLayout title="🔗 Linked List">
       <LinkedListDemo />
     </DSAPageLayout>
   );

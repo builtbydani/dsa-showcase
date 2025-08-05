@@ -24,14 +24,17 @@ export class SinglyLinkedList {
 
   delete(value) {
     if (!this.head) return;
-    if (!this.head.value === value) {
+    if (this.head.value === value) {
       this.head = this.head.next;
+      return;
     }
+
     let curr = this.head;
-    if (curr.next && curr.next.value !== value) {
+    while (curr.next && curr.next.value !== value) {
       curr = curr.next;
     }
-    if (curr.next) {
+
+    if (curr.next && curr.next.value === value) {
       curr.next = curr.next.next;
     }
   }
@@ -53,6 +56,7 @@ export class DoublyLinkedList {
   }
 
   insertAtEnd(value) {
+    const newNode = new ListNode(value);
     if (!this.head) {
       this.head = newNode;
       return;
@@ -74,7 +78,7 @@ export class DoublyLinkedList {
     while (curr && curr.value !== value) {
       curr = curr.next;
     }
-    if (curr) {
+    if (curr && curr.value === value) {
       if (curr.prev) curr.prev.next = curr.next;
       if (curr.next) curr.next.prev = curr.prev;
     }
