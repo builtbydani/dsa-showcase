@@ -35,7 +35,7 @@ export default function BSTCanvas({ bst, highlight, lastInserted }) {
     drawNode(bst.root);
   }, [bst, highlight]);
 
-  return <canvas ref={canvasRef} width={1000} height={600} className="rounded bg-black" />;
+  return <canvas ref={canvasRef} className="rounded-bg-white w-full h-[500px] block" />;
 }
 
 function drawLine(ctx, x1, y1, x2, y2) {

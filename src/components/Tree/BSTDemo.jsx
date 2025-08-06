@@ -44,15 +44,15 @@ export default function BSTDemo() {
         setMode={setMode}
       />
 
+      <PseudocodeBox mode={mode}/>
+
       <DescriptionBox>
         A <strong>Binary Search Tree</strong> is a binary tree where each node follows the rule:
         <br />
         <em>left child &lt; parent &lt; right child</em>.
         <br />
         This property allows effiecient <strong>search, insertion, and deletion</strong> operations.
-      </DescriptionBox>
-
-      <PseudocodeBox mode={mode}/>
+      </DescriptionBox> 
 
     </GlowPanel>
   );
