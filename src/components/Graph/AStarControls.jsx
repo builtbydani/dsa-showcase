@@ -30,8 +30,10 @@ export default function AStarControls({
   setCurrentNode,
   pqState,
   setPQState,
+  onRun
 }) {
   const handleRunAStar = () => {
+    onRun?.();
     const traversal = astar(weightedGraph, "A", "F", heuristic);
     const steps = [...traversal];
 

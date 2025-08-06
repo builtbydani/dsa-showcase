@@ -3,7 +3,7 @@ import GlowPanel from "../Common/GlowPanel";
 export default function PriorityQueueDisplay({ queue }) {
   return (
     <GlowPanel title="Priority Queue:">
-      <div className="flex flex-col items-center gap-2 mt-2">
+      <div className="flex flex-row items-center justify-center gap-2 mt-2">
         {[...queue]
           .sort((a, b) => a.priority - b.priority) // optional: sort by priority for display
           .map((node, index) => (

@@ -15,9 +15,11 @@ export default function BFSControls({
   currentNode,
   setCurrentNode,
   queueState,
-  setQueueState
+  setQueueState,
+  onRun
 }) {
   const handleRunBFS = () => {
+    onRun?.();
     const traversal = bfs(presetGraph, "A");
     const steps = [...traversal];
 

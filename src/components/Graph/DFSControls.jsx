@@ -16,8 +16,10 @@ export default function DFSControls({
   setCurrentNode,
   stackState,
   setStackState,
+  onRun
 }) {
   const handleRunDFS = () => {
+    onRun?.();
     const traversal = dfs(presetGraph, "A");
     const steps = [...traversal];
 

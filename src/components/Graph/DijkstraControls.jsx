@@ -18,8 +18,10 @@ export default function DijkstraControls({
   setPQState,
   distances,
   setDistances,
+  onRun
 }) {
   const handleRunDijkstra = () => {
+    onRun?.();
     const traversal = dijkstra(weightedGraph, "A");
     const steps = [...traversal];
 

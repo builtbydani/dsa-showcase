@@ -3,7 +3,7 @@ import GlowPanel from "../Common/GlowPanel";
 export default function StackDisplay({ stack }) {
   return (
     <GlowPanel title="Stack:">
-      <div className="flex flex-col gap-2 items-center mt-2">
+      <div className="flex flex-row gap-2 items-center justify-center mt-2">
         {[...stack].reverse().map((node, index) => (
           <div
             key={index}
