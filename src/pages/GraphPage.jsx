@@ -5,12 +5,17 @@ import DFSControls from "../components/Graph/DFSControls";
 import GraphCanvas from "../components/Graph/GraphCanvas";
 import QueueDisplay from "../components/Graph/QueueDisplay";
 import StackDisplay from "../components/Graph/StackDisplay";
+import DijkstraControls from "../components/Graph/DijkstraControls";
+import PriorityQueueDisplay from "../components/Graph/PriorityQueueDisplay";
+import AStarControls from "../components/Graph/AStarControls";
 
 export default function GraphPage() {
   const [visitedNodes, setVisitedNodes] = useState([]);
   const [currentNode, setCurrentNode] = useState(null);
   const [queueState, setQueueState] = useState([]);
   const [stackState, setStackState] = useState([]);
+  const [pqState, setPQState] = useState([]);
+  const [distances, setDistances] = useState([]);
 
   return (
     <DSAPageLayout title="Graphs">
@@ -30,9 +35,29 @@ export default function GraphPage() {
         stackState={stackState}
         setStackState={setStackState}
       />
+      <DijkstraControls
+        visitedNodes={visitedNodes}
+        setVisitedNodes={setVisitedNodes}
+        currentNode={currentNode}
+        setCurrentNode={setCurrentNode}
+        pqState={pqState}
+        setPQState={setPQState}
+        distances={distances}
+        setDistances={setDistances}
+      />
+      <AStarControls
+        visitedNodes={visitedNodes}
+        setVisitedNodes={setVisitedNodes}
+        currentNode={currentNode}
+        setCurrentNode={setCurrentNode}
+        pqState={pqState}
+        setPQState={setPQState}
+      />
+
       <GraphCanvas visitedNodes={visitedNodes} currentNode={currentNode} />
       <QueueDisplay queue={queueState}/>
       <StackDisplay stack={stackState} />
+      <PriorityQueueDisplay queue={pqState} />
     </DSAPageLayout>
   );
 }
