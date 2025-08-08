@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function SortingCanvas({ array, highlight }) {
+export default function SortingCanvas({ array, highlight, pivot }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -19,8 +19,34 @@ export default function SortingCanvas({ array, highlight }) {
 
     array.forEach((val, i) => {
       const barHeight = (val / Math.max(...array)) * height;
-      ctx.fillStyle = highlight.includes(i) ? "red" : "skyblue";
+
+      ctx.fillStyle = i === pivot
+        ? "#a855f7"
+        : highlight.includes(i) 
+        ? "red" 
+        : "skyblue";
+
       ctx.fillRect(i * barWidth, height - barHeight, barWidth - 2, barHeight);
+
+      if (i === pivot) {
+        ctx.save(); // Save current context state
+
+        // Translate to pivot bar's center
+        const x = i * barWidth + barWidth / 2;
+        const y = height - barHeight / 2;
+
+        ctx.translate(x, y);
+        ctx.rotate(-Math.PI / 2); // Rotate 90° counter-clockwise
+
+        // Draw vertical text
+        ctx.fillStyle = "white";
+        ctx.font = "bold 14px sans-serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("PIVOT", 0, 0);
+
+        ctx.restore(); // Restore original context
+      }
     });
   }, [array, highlight]);
 
