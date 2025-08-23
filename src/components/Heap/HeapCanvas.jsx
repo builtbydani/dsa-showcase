@@ -53,7 +53,7 @@ export default function HeapCanvas({ array, highlight }) {
   return (
     <canvas
       ref={canvasRef}
-      className="rounded bg-white mx-auto w-full h-[300px] mt-4"
+      className="rounded bg-slate-600 mx-auto w-full h-[300px] mt-4"
     />
   );
 }

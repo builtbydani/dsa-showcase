@@ -6,6 +6,7 @@ const variants = {
   green: "bg-green-400 hover:bg-green-500 text-white",
   red: "bg-red-400 hover:bg-red-500 text-white",
   gray: "bg-gray-300 hover:bg-gray-400 text-gray-800",
+  yellow: "bg-yellow-400 hover:bg-yellow-500 text-white",
 };
 
 export default function Button({ children, variant = "gray", className = "", ...props }) {

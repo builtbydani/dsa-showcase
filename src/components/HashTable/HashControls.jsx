@@ -21,7 +21,7 @@ export default function HashControls({ onInsert, mode, setMode }) {
             value={key}
             onChange={(e) => setKey(e.target.value)}
           />
-          <Button onClick={handleAdd}>Insert</Button>
+          <Button onClick={handleAdd} variant="blue">Insert</Button>
         </div>
 
         <div className="flex gap-2">

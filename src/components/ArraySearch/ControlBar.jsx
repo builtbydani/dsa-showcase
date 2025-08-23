@@ -19,13 +19,13 @@ export default function ControlBar({
         onChange={(e) => setTarget(e.target.value)}
         placeholder="Search for..."
       />
-      <Button onClick={runLinear} disabled={disabled} variant="pink">
+      <Button onClick={runLinear} disabled={disabled} variant="green">
         Linear Search
       </Button>
       <Button onClick={runBinary} disabled={disabled} variant="blue">
         Binary Search
       </Button>
-      <Button onClick={() => setShowCode(!showCode)} variant="gray">
+      <Button onClick={() => setShowCode(!showCode)} variant="yellow">
         {showCode ? "Hide Pseudocode" : "Show Pseudocode"}
       </Button>
     </div>

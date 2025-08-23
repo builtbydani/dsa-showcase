@@ -17,8 +17,8 @@ export default function SortingControls({ onSort, onGenerate, sortType, setSortT
         </select>
 
         <div className="flex gap-2">
-          <Button onClick={onGenerate}>Generate Array</Button>
-          <Button onClick={onSort}>Start</Button>
+          <Button onClick={onGenerate} variant="blue">Generate Array</Button>
+          <Button onClick={onSort} variant="green">Start</Button>
         </div>
       </div>
     </GlowPanel>

@@ -6,7 +6,7 @@ export default function Array({ values = [], highlightIndex = null }) {
         <div
           key={idx}
           className={`w-12 h-12 flex items-center justify-center rounded-xl text-white text-lg font-semibold ${
-            idx === highlightIndex ? "bg-pink-500" : "bg-indigo-400"
+            idx === highlightIndex ? "bg-green-400" : "bg-blue-400"
           }`}
         >
           {value}

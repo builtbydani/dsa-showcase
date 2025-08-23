@@ -22,9 +22,9 @@ export default function HeapControls({ onInsert, onExtractMin }) {
             onChange={(e) => setValue(e.target.value)}
             placeholder="Enter value"
           />
-          <Button onClick={handleInsertClick}>Insert</Button>
+          <Button onClick={handleInsertClick} variant="blue">Insert</Button>
         </div>
-        <Button onClick={onExtractMin}>Extract Min</Button>
+        <Button onClick={onExtractMin} variant="red">Extract Min</Button>
       </div>
     </GlowPanel>
   );

@@ -74,13 +74,16 @@ export default function BSTControls({ bst, setBst, setHighlight, setLastInserted
         <option value="search">Search</option>
         <option value="delete">Delete</option>
       </select>
-      <Button onClick={handleAction}>Go</Button>
+      <Button onClick={handleAction} variant="green">Go</Button>
 
-      <div>
-        <Button onClick={() => handleTraversal("inorder")}>Inorder</Button>
-        <Button onClick={() => handleTraversal("preorder")}>Preorder</Button>
-        <Button onClick={() => handleTraversal("postorder")}>Postorder</Button>
-        <Button onClick={handleReset}>Reset</Button>
+      <div className="flex flex-row">
+        <h1 className="text-2xl px-4 gap-5">Traverse:</h1>
+        <div className="space-x-2">
+          <Button onClick={() => handleTraversal("inorder")} variant="blue">Inorder</Button>
+          <Button onClick={() => handleTraversal("preorder")} variant="yellow">Preorder</Button>
+          <Button onClick={() => handleTraversal("postorder")} variant="pink">Postorder</Button>
+          <Button onClick={handleReset} variant="red">Reset</Button>
+        </div>
       </div>
     </div>
   );
